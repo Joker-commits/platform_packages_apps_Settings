@@ -44,6 +44,8 @@ public class TopLevelSecurityEntryPreferenceController extends BasePreferenceCon
                 Utils.getFingerprintManagerOrNull(mContext);
         final FaceManager faceManager =
                 Utils.getFaceManagerOrNull(mContext);
+         if (fpm != null && fpm.isHardwareDetected() && FaceUtils.isFaceUnlockSupported()) {
+            return mContext.getText(R.string.security_dashboard_summary_face_and_fingerprint);
         final AppLockManager appLockManager =
                 Utils.getAppLockManager(mContext);
         CharSequence summary = null;
